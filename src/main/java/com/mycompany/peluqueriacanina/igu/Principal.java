@@ -119,7 +119,10 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnConsultarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarDatosActionPerformed
-        // TODO add your handling code here:
+        ConsultarDatos pantalla = new ConsultarDatos();
+        pantalla.setVisible(true);
+        pantalla.setLocationRelativeTo(null);
+        this.setVisible(false);
     }//GEN-LAST:event_btnConsultarDatosActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
