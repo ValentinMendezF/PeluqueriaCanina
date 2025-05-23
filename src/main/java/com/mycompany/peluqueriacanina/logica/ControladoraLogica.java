@@ -38,6 +38,40 @@ public class ControladoraLogica {
         controladoraPersistencia.eliminarDatos(numeroMascota);
     }
 
+    public Mascota traerMascota(int numeroMascota) {
+        return controladoraPersistencia.traerMascota(numeroMascota);
+    }
+
+    public void modificarMascota(Mascota mascota, String nombreMascota, String raza, String color, String alergico,
+            String atencionEspecial, String nombreDuenio, String celularDuenio, String observaciones) {
+        
+        mascota.setNombreMascota(nombreMascota);
+        mascota.setRaza(raza);
+        mascota.setColor(color);
+        mascota.setAlergico(alergico);
+        mascota.setAtencionEspecial(atencionEspecial);
+        mascota.setObservaciones(observaciones);
+        
+        controladoraPersistencia.modificarMascota(mascota);
+        
+        Duenio duenio = this.buscarDuenio(mascota.getDuenio().getIdDuenio());
+        
+        duenio.setNombreDuenio(nombreDuenio);
+        duenio.setCelularDuenio(celularDuenio);
+        
+        this.modificarDuenio(duenio);
+    }
+
+    private Duenio buscarDuenio(int idDuenio) {
+        return controladoraPersistencia.buscarDuenio(idDuenio);
+    }
+
+    private void modificarDuenio(Duenio duenio) {
+        controladoraPersistencia.modificarDuenio(duenio);
+    }
+
+    
+
     
     
 }
